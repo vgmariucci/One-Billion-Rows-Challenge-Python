@@ -92,6 +92,11 @@ Para executar este projeto e reproduzir os resultados:
 5. Certifique-se de instalar as versões especificadas das bibliotecas Dask, Polars e DuckDB
 6. Execute os scripts `python src/using_python.py`, `python src/using_pandas.py`, `python src/using_dask.py`, `python src/using_polars.py` e `python src/using_duckdb.py` através de um terminal ou ambiente de desenvolvimento que suporte Python.
 
+Observações válidas para quem for executar os scripts no Windows:
+
+1. `using_python.py` -> Lembrar de incluir encoding = 'utf-8' nos gerenciadores de contexto 'with open'
+
+
 Este projeto destaca a versatilidade do ecossistema Python para tarefas de processamento de dados, oferecendo valiosas lições sobre escolha de ferramentas para análises em grande escala.
 
 ## Bonus

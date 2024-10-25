@@ -1,4 +1,8 @@
 import polars as pl
+from pathlib import Path
+
+root_path = Path(__file__).parent.parent
+txt_file_path = root_path / 'data' / 'measurements.txt'
 
 # Created by Koen Vossen, 
 # Github: https://github.com/koenvo
@@ -8,7 +12,7 @@ def create_polars_df():
     pl.Config.set_streaming_chunk_size(4000000)
     return (
         
-        pl.scan_csv("data/measurements.txt", separator=";", has_header=False, new_columns=["station", "measure"], schema={"station": pl.String, "measure": pl.Float64})
+        pl.scan_csv(txt_file_path, separator=";", has_header=False, new_columns=["station", "measure"], schema={"station": pl.String, "measure": pl.Float64})
         .group_by(by="station")
         .agg(
             max = pl.col("measure").max(),
